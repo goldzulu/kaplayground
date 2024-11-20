@@ -21,7 +21,7 @@ export const AboutDialog = () => {
                     </p>
 
                     <p>
-                        <span className="font-medium">Version:</span> {VERSION}
+                        <span className="font-medium">Version:</span> {VERSION} AICLUB Edition
                         <br />
                         <a
                             className="font-medium link link-primary"
