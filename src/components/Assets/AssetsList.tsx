@@ -1,7 +1,8 @@
 import { useDragAndDrop } from "@formkit/drag-and-drop/react";
 import { type FC, useEffect } from "react";
+import type { Asset } from "../../features/Projects/models/Asset";
+import type { AssetKind } from "../../features/Projects/models/AssetKind";
 import { useAssets } from "../../hooks/useAssets";
-import type { Asset, AssetKind } from "../../stores/storage/assets";
 import type { ResourceProps } from "./AssetsItem";
 import AssetsItem from "./AssetsItem";
 
@@ -24,7 +25,7 @@ const AssetsList: FC<Props> = ({ kind, visibleIcon }) => {
     return (
         <ul
             ref={parent}
-            className="inline-flex flex-wrap gap-6 content-start overflow-auto max-h-44 "
+            className="inline-flex flex-wrap gap-6 content-start h-full pb-14 overflow-auto scrollbar-thin"
         >
             {draggableAssets.map((resource, i) => (
                 <AssetsItem

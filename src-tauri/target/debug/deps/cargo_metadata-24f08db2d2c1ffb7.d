@@ -1,0 +1,11 @@
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/libcargo_metadata-24f08db2d2c1ffb7.rmeta: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/dependency.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/diagnostic.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/errors.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/messages.rs
+
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/libcargo_metadata-24f08db2d2c1ffb7.rlib: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/dependency.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/diagnostic.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/errors.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/messages.rs
+
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/cargo_metadata-24f08db2d2c1ffb7.d: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/dependency.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/diagnostic.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/errors.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/messages.rs
+
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/lib.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/dependency.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/diagnostic.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/errors.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cargo_metadata-0.19.1/src/messages.rs:

@@ -1,69 +1,72 @@
-import { useProject } from "../hooks/useProject";
+import { useProject } from "../features/Projects/stores/useProject";
+import { parseAssetPath } from "./assetsParsing";
 import { debug } from "./logs";
+import { MATCH_ASSET_URL_REGEX } from "./regex";
 
-// Wraps the game in an acceptable format for iFrame
-export const wrapGame = (code: string) => `
-<!DOCTYPE html>
-<head>
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body,
-html {
-    width: 100%;
-    height: 100vh;
-}
+export const getVersion = (fetchIt = false) => {
+    const version = useProject.getState().project.kaplayVersion;
+    let libVersion;
 
-body {
-            overflow: hidden;
-            background: #171212;
+    if (version == "master") {
+        libVersion =
+            "https://kaplay-cdn-worker.lajbel.workers.dev/versions/kaplay.master.mjs";
+    } else {
+        const versionSplit = version.split(".");
+        const major = Number(versionSplit[0]);
+        const patch = Number(versionSplit[2]);
+
+        if (major == 3001 && patch > 12) {
+            libVersion = `https://unpkg.com/kaplay@${version}/dist/kaplay.mjs`;
+        } else if (major == 3001) {
+            libVersion = `https://unpkg.com/kaplay@${version}/dist/kaboom.mjs`;
+        } else if (major == 4000) {
+            libVersion = `https://unpkg.com/kaplay@${version}/dist/kaplay.mjs`;
+        } else {
+            libVersion = `https://unpkg.com/kaplay@${version}/dist/kaplay.mjs`;
         }
-        </style>
-</head>
-<body>
-<script src="https://unpkg.com/kaplay@${useProject.getState().project.kaplayVersion}/dist/kaboom.js"></script>
-<script>
-    ${parseAssets(code)}
-</script>
-</body>
-`;
+    }
+
+    if (fetchIt) {
+        return fetch(libVersion, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/javascript",
+            },
+            mode: "cors",
+            credentials: "same-origin",
+        })
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error("Failed to fetch the library");
+                }
+                return res.text();
+            })
+            .catch((err) => {
+                debug(0, "[compiler] Error fetching library:", err);
+            });
+    } else {
+        return libVersion;
+    }
+};
 
 const transformAssetUrl = (regex: RegExp, code: string) => {
-    const { project: { assets: resources } } = useProject.getState();
-
-    const x = code.replace(regex, (match, asset: string) => {
-        debug(0, "Transforming urls, asset matched", asset);
-
-        // remove first / and last / from asset, also remove "assets" from asset
-        const normalizeAsset = asset.replace(/^\/|\/$/g, "").replace(
-            "assets/",
-            "",
-        ).replace(/"/g, "");
-
-        debug(0, "Resource found:", resources.get(normalizeAsset)?.url);
-
+    const parsed = code.replace(regex, (match, asset: string) => {
         return match.replace(
             asset,
-            resources.get(normalizeAsset)?.url ?? asset,
+            parseAssetPath(asset),
         );
     });
 
-    return x;
+    return parsed;
 };
 
 export const parseAssets = (code: string) => {
-    const regexLoad = /load\w+\(\s*"[^"]*",\s*"([^"]*)"\s*/g;
     const regexComment = /\/\/\s*kaplay-transformation-asset\s*(.*)/g;
 
     const codeTransformed = transformAssetUrl(
-        regexLoad,
+        MATCH_ASSET_URL_REGEX,
         transformAssetUrl(regexComment, code),
     );
-
-    debug(2, "Code with assets", codeTransformed);
 
     return codeTransformed;
 };

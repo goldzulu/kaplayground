@@ -1,0 +1,13 @@
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/libuuid-3b4afd377affafd6.rmeta: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/builder.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/error.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/parser.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/fmt.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/timestamp.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/external.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/external/serde_support.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/macros.rs
+
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/uuid-3b4afd377affafd6.d: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/builder.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/error.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/parser.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/fmt.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/timestamp.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/external.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/external/serde_support.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/macros.rs
+
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/lib.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/builder.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/error.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/parser.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/fmt.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/timestamp.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/external.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/external/serde_support.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/uuid-1.11.1/src/macros.rs:

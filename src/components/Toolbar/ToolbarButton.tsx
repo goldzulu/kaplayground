@@ -10,13 +10,14 @@ type Props = {
 type Ref = HTMLButtonElement;
 
 const generateKbdFromKeys = (keys: string[]) => {
-    return keys.map((key) => `<kbd class="kbd">${key}</kbd>`).join(" + ");
+    return keys.map((key) => `<kbd class="kbd kbd-sm my-1.5">${key}</kbd>`)
+        .join(" + ");
 };
 
-const ToolbarButton = forwardRef<Ref, Props>((props, ref) => {
+export const ToolbarButton = forwardRef<Ref, Props>((props, ref) => {
     return (
         <button
-            className="btn btn-xs btn-ghost px-2 rounded-sm items-center justify-center h-full"
+            className="btn btn-xs btn-ghost px-2 rounded-sm items-center justify-center h-full group-last:rounded-br-lg"
             data-tooltip-id="global"
             data-tooltip-html={`${props.tip}</br>${
                 props.keys ? generateKbdFromKeys(props.keys) : ""
@@ -25,10 +26,12 @@ const ToolbarButton = forwardRef<Ref, Props>((props, ref) => {
             ref={ref}
             {...props}
         >
-            <span className="hidden lg:block">{props.text}</span>
-            <img src={props.icon} alt={props.text} className="h-6 lg:h-4" />
+            <span className="hidden xl:block">{props.text}</span>
+            <img
+                src={props.icon}
+                alt={props.text}
+                className="h-5 w-5 object-contain"
+            />
         </button>
     );
 });
-
-export default ToolbarButton;

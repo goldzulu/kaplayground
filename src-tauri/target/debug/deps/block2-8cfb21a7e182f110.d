@@ -1,0 +1,13 @@
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/libblock2-8cfb21a7e182f110.rmeta: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/abi.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/block.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/debug.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/ffi.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/global.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/rc_block.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/stack.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/traits.rs
+
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/block2-8cfb21a7e182f110.d: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/abi.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/block.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/debug.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/ffi.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/global.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/rc_block.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/stack.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/traits.rs
+
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/lib.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/abi.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/block.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/debug.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/ffi.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/global.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/rc_block.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/stack.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/block2-0.5.1/src/traits.rs:

@@ -1,6 +1,8 @@
 import { useMemo } from "react";
-import type { Asset, AssetKind, AssetsSlice } from "../stores/storage/assets";
-import { useProject } from "./useProject";
+import type { Asset } from "../features/Projects/models/Asset";
+import type { AssetKind } from "../features/Projects/models/AssetKind";
+import type { AssetsSlice } from "../features/Projects/stores/slices/assets";
+import { useProject } from "../features/Projects/stores/useProject";
 
 type UseAssetsOpt = {
     kind?: AssetKind;
@@ -13,12 +15,10 @@ type UseAssetsReturn = AssetsSlice & {
 type UseAssetsHook = (opt: UseAssetsOpt) => UseAssetsReturn;
 
 export const useAssets: UseAssetsHook = ({ kind }) => {
-    const {
-        assetsLastId,
-        removeAsset,
-        addAsset,
-        project: { assets },
-    } = useProject();
+    const assetsLastId = useProject((s) => s.assetsLastId);
+    const removeAsset = useProject((s) => s.removeAsset);
+    const addAsset = useProject((s) => s.addAsset);
+    const assets = useProject((s) => s.project.assets);
 
     const filteredAssets = useMemo(() => {
         if (!kind) return Object.values(assets);

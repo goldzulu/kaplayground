@@ -4,11 +4,11 @@ import { cn } from "../../util/cn";
 export type ViewProps = PropsWithChildren<
     {
         direction?: "row" | "column";
-        gap?: 2 | 4 | 8;
+        gap?: 1.5 | 2 | 4 | 8;
         padding?: 2 | 4 | 8;
         justify?: "center" | "start" | "end" | "between" | "around";
         height?: "full" | "screen";
-        rounded?: "lg" | "md" | "sm";
+        rounded?: "xl" | "lg" | "md" | "sm";
         cursor?: "pointer" | "default";
         className?: string;
         id?: string;
@@ -43,6 +43,7 @@ export const View: FC<ViewProps> = (props) => {
                 "flex": needsFlex,
                 "flex-col": direction === "column",
                 "flex-row": direction === "row",
+                "gap-1.5": gap === 1.5,
                 "gap-2": gap === 2,
                 "gap-4": gap === 4,
                 "gap-8": gap === 8,
@@ -56,6 +57,7 @@ export const View: FC<ViewProps> = (props) => {
                 "justify-around": justify === "around",
                 "h-full": height === "full",
                 "h-screen": height === "screen",
+                "rounded-xl": rounded === "xl",
                 "rounded-lg": rounded === "lg",
                 "rounded-md": rounded === "md",
                 "rounded-sm": rounded === "sm",

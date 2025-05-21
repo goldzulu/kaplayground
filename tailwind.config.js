@@ -1,3 +1,5 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -5,14 +7,24 @@ export default {
         require("daisyui"),
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ["\"Outfit Variable\"", ...defaultTheme.fontFamily.sans],
+                mono: ["\"DM Mono\"", ...defaultTheme.fontFamily.mono],
+            },
+            backgroundPosition: {
+                "select-xs": "right 12px center, right 8px center",
+            },
+        },
     },
     daisyui: {
         themes: [
             {
                 "Spiker": {
                     ...require("daisyui/src/theming/themes")["dim"],
-                    primary: "#6ba672",
+                    primary: "#abdd64",
+                    error: "#ea6262",
+                    "--animation-btn": 0,
                 },
                 "Ghostiny": {
                     ...require("daisyui/src/theming/themes")["emerald"],

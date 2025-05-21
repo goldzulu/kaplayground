@@ -1,0 +1,17 @@
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/libcssparser-a727fa80959249f3.rmeta: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/macros.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/rules_and_declarations.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/color.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/cow_rc_str.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/from_bytes.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/nth.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/parser.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/serializer.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/unicode_range.rs /Users/zoo/ingit/kaplayground/src-tauri/target/debug/build/cssparser-56eb5e3aa08ec189/out/tokenizer.rs
+
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/cssparser-a727fa80959249f3.d: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/macros.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/rules_and_declarations.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/color.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/cow_rc_str.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/from_bytes.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/nth.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/parser.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/serializer.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/unicode_range.rs /Users/zoo/ingit/kaplayground/src-tauri/target/debug/build/cssparser-56eb5e3aa08ec189/out/tokenizer.rs
+
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/lib.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/macros.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/rules_and_declarations.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/color.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/cow_rc_str.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/from_bytes.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/nth.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/parser.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/serializer.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/cssparser-0.27.2/src/unicode_range.rs:
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/build/cssparser-56eb5e3aa08ec189/out/tokenizer.rs:
+
+# env-dep:OUT_DIR=/Users/zoo/ingit/kaplayground/src-tauri/target/debug/build/cssparser-56eb5e3aa08ec189/out

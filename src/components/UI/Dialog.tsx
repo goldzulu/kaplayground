@@ -1,21 +1,22 @@
 import type { ComponentProps, FC } from "react";
-import { View } from "./View";
 
-type Props = ComponentProps<"dialog"> & {
+interface DialogProps extends ComponentProps<"dialog"> {
     onSave?: () => void;
     onCloseWithoutSave?: () => void;
-};
+}
 
-export const Dialog: FC<Props> = ({ onSave, onCloseWithoutSave, ...props }) => {
+export const Dialog: FC<DialogProps> = (
+    { onSave, onCloseWithoutSave, ...props },
+) => {
     return (
-        <View className="modal" el={"dialog"} id={props.id} {...props}>
+        <dialog className="modal" id={props.id}>
             <main className="modal-box overflow-hidden px-0 py-0">
-                <section className="max-h-[400px] overflow-y-auto p-4">
+                <section className="max-h-[400px] overflow-y-auto p-5">
                     {props.children}
                 </section>
 
-                <footer className="p-4 bg-base-200">
-                    <div className="modal-action">
+                <footer className="p-5 bg-base-200">
+                    <div className="modal-action mt-0">
                         <form method="dialog">
                             <button
                                 className="btn btn-primary"
@@ -37,6 +38,6 @@ export const Dialog: FC<Props> = ({ onSave, onCloseWithoutSave, ...props }) => {
                     Close
                 </button>
             </form>
-        </View>
+        </dialog>
     );
 };

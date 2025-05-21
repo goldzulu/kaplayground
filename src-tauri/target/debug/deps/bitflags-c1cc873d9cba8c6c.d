@@ -1,0 +1,12 @@
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/libbitflags-c1cc873d9cba8c6c.rmeta: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/iter.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/parser.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/traits.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/public.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/internal.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/external.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/external/serde.rs
+
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/bitflags-c1cc873d9cba8c6c.d: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/iter.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/parser.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/traits.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/public.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/internal.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/external.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/external/serde.rs
+
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/lib.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/iter.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/parser.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/traits.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/public.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/internal.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/external.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.7.0/src/external/serde.rs:

@@ -1,39 +1,41 @@
 import type { Monaco } from "@monaco-editor/react";
 import type { editor } from "monaco-editor";
-import { createRef, type RefObject } from "react";
 import { toast } from "react-toastify";
 import { create } from "zustand";
-import { wrapGame } from "../util/compiler";
+import { wrapGame } from "../features/Projects/application/wrapGame";
+import { useProject } from "../features/Projects/stores/useProject";
+import { parseAssetPath } from "../util/assetsParsing";
 import { debug } from "../util/logs";
-import { useProject } from "./useProject";
+import { MATCH_ASSET_URL_REGEX } from "../util/regex";
 
 type EditorRuntime = {
     editor: editor.IStandaloneCodeEditor | null;
     monaco: Monaco | null;
+    viewStates: Record<string, editor.ICodeEditorViewState | null>;
     currentFile: string;
     gylphDecorations: editor.IEditorDecorationsCollection | null;
     iframe: HTMLIFrameElement | null;
+    console: Console | null;
+    kaplayVersions: string[];
 };
 
-type EditorStore = {
-    runtime: {
-        editor: editor.IStandaloneCodeEditor | null;
-        monaco: Monaco | null;
-        currentFile: string;
-        gylphDecorations: editor.IEditorDecorationsCollection | null;
-        iframe: HTMLIFrameElement | null;
-    };
+export interface EditorStore {
+    runtime: EditorRuntime;
     update: (value?: string) => void;
     run: () => void;
     getRuntime: () => EditorRuntime;
     setRuntime: (runtime: Partial<EditorRuntime>) => void;
     setCurrentFile: (currentFile: string) => void;
     setTheme: (theme: string) => void;
+    /**
+     * Update Gylph image decorations for loadXXXX functions
+     */
     updateImageDecorations: () => void;
+    updateModelMarkers: () => void;
     showNotification: (message: string) => void;
     setEditorValue: (value: string) => void;
     updateAndRun: () => void;
-};
+}
 
 export const useEditor = create<EditorStore>((set, get) => ({
     runtime: {
@@ -42,7 +44,11 @@ export const useEditor = create<EditorStore>((set, get) => ({
         currentFile: "main.js",
         gylphDecorations: null,
         iframe: null,
+        console: null,
         isDefaultExample: false,
+        viewStates: {},
+        currentSelection: null,
+        kaplayVersions: [],
     },
     setRuntime: (runtime) => {
         set((state) => ({
@@ -53,17 +59,61 @@ export const useEditor = create<EditorStore>((set, get) => ({
         }));
     },
     getRuntime: () => get().runtime,
-    setCurrentFile: (currentFile) => {
+    setCurrentFile: (newCurrentFile) => {
+        const editor = get().runtime.editor;
+        const monaco = get().runtime.monaco;
+        const currentFile = get().runtime.currentFile;
+        const viewStates = get().runtime.viewStates;
+        // remove initial /
+        newCurrentFile = newCurrentFile.replace(/^\/|\/$/g, "");
+
+        if (!editor || !monaco) {
+            return set({
+                runtime: {
+                    ...get().runtime,
+                    currentFile: newCurrentFile,
+                },
+            });
+        }
+
+        // Previous view state saving
+        viewStates[currentFile] = editor.saveViewState();
+
+        // Model changing logic
+        let currentFileModel = monaco.editor.getModel(
+            monaco.Uri.file(newCurrentFile),
+        );
+
+        if (!currentFileModel) {
+            currentFileModel = monaco.editor.createModel(
+                useProject.getState().getFile(newCurrentFile)?.value ?? "",
+                "javascript",
+                monaco.Uri.file(newCurrentFile),
+            );
+        }
+
+        editor.setModel(currentFileModel);
+
+        // Load new view state
+        const viewState = viewStates[newCurrentFile];
+
+        if (viewState) {
+            editor.restoreViewState(viewState);
+        }
+
+        editor.focus();
+
         set((state) => ({
             runtime: {
                 ...state.runtime,
-                currentFile,
+                currentFile: newCurrentFile,
+                viewStates: viewStates,
             },
         }));
     },
     update: (customValue?: string) => {
         if (customValue) {
-            debug(0, "Editor value updated with custom value");
+            debug(0, "[codeEditor] Editor value updated with custom value");
 
             get().setEditorValue(customValue);
             return;
@@ -74,7 +124,11 @@ export const useEditor = create<EditorStore>((set, get) => ({
         );
         if (!currentFile) return;
 
-        debug(0, "Editor value updated with", currentFile.path);
+        debug(
+            0,
+            "[monaco] Editor value forced updated with",
+            currentFile.path.slice(0, 25) + "...",
+        );
 
         get().setEditorValue(currentFile.value);
         get().updateImageDecorations();
@@ -88,59 +142,40 @@ export const useEditor = create<EditorStore>((set, get) => ({
         });
     },
     run() {
-        const iframe = document.querySelector<HTMLIFrameElement>("#game-view");
+        const iframe = document.querySelector<HTMLIFrameElement>(
+            "#game-view",
+        );
         if (!iframe) return;
 
-        const {
-            getKAPLAYFile,
-            getMainFile,
-            getAssetsFile,
-            getProject,
-        } = useProject.getState();
-        if (!iframe) return;
+        // Refresh the iframe
+        iframe.src = iframe.src;
 
-        let mainFile = getMainFile()?.value ?? "";
-        let parsedFiles = "";
+        iframe.onload = () => {
+            console.log("[game] iframe loaded");
+            const code = wrapGame();
+            const iframeContentWindow = iframe.contentWindow;
 
-        if (getProject().mode === "ex") {
-            parsedFiles = mainFile;
-        } else {
-            let sceneFiles = "";
-            let objectFiles = "";
-            let utilFiles = "";
-            let KAPLAYFile = getKAPLAYFile()?.value ?? "";
-            let assetsFile = getAssetsFile()?.value ?? "";
+            if (!iframeContentWindow) return;
 
-            getProject().files.forEach((file) => {
-                if (file.kind == "scene") {
-                    sceneFiles += `\n${file.value}\n`;
-                } else if (file.kind == "obj") {
-                    objectFiles += `\n${file.value}\n`;
-                } else if (file.kind == "util") {
-                    utilFiles += `\n${file.value}\n`;
-                }
+            code.then((d) => {
+                iframeContentWindow.postMessage(
+                    {
+                        type: "UPDATE_CODE",
+                        code: d,
+                    },
+                    "*",
+                );
             });
-
-            parsedFiles = `${KAPLAYFile}\n\n 
-            ${assetsFile}\n\n 
-            ${utilFiles}\n\n
-            ${objectFiles}\n\n
-            ${sceneFiles}\n\n 
-            ${mainFile}`;
-        }
-
-        iframe.srcdoc = wrapGame(parsedFiles);
+        };
     },
     updateImageDecorations() {
-        debug(0, "Updating gylph decorations");
+        debug(0, "[monaco] Updating gylph decorations");
         const editor = get().runtime.editor;
         const monaco = get().runtime.monaco;
         const gylphDecorations = get().runtime.gylphDecorations;
         const model = editor?.getModel();
 
         if (!editor || !monaco || !model || !gylphDecorations) return;
-
-        const regexLoad = /load\w+\(\s*"[^"]*",\s*"([^"]*)"\s*\)/g;
 
         // for each every line
         const lines = editor.getModel()?.getLinesContent() ?? [];
@@ -151,10 +186,61 @@ export const useEditor = create<EditorStore>((set, get) => ({
         }[] = [];
 
         lines.forEach((line, index) => {
-            const match = line.match(regexLoad);
+            const match = [...line.matchAll(MATCH_ASSET_URL_REGEX)]?.[0];
+            const url = match?.[1];
+
+            if (!url) return;
+
+            linesRange.push({
+                image: parseAssetPath(url),
+                line: index + 1,
+            });
+        });
+
+        const decorations = linesRange.map(
+            ({ image, line }) => {
+                return {
+                    range: new monaco.Range(line, 1, line, 1),
+                    options: {
+                        glyphMarginClassName:
+                            "monaco-glyph-margin-preview-image",
+                        glyphMarginHoverMessage: {
+                            value: `![image](${image})`,
+                            isTrusted: true,
+                        },
+                        hoverMessage: {
+                            value: image,
+                        },
+                    },
+                } satisfies editor.IModelDeltaDecoration;
+            },
+        );
+
+        gylphDecorations.set(decorations);
+    },
+    updateModelMarkers() {
+        debug(0, "[monaco] Updating gylph decorations");
+        const editor = get().runtime.editor;
+        const monaco = get().runtime.monaco;
+        const model = editor?.getModel();
+
+        if (!editor || !monaco || !model) return;
+
+        const regexAdd = /add\(\[[^"]\]\)/g;
+
+        // for each every line
+        const lines = editor.getModel()?.getLinesContent() ?? [];
+
+        let linesRange: {
+            image: string;
+            line: number;
+        }[] = [];
+
+        lines.forEach((line, index) => {
+            const match = line.match(regexAdd);
             if (!match) return;
 
-            const url = line.replace(regexLoad, (_, url) => {
+            const url = line.replace(regexAdd, (_, url) => {
                 return url;
             });
 
@@ -180,17 +266,6 @@ export const useEditor = create<EditorStore>((set, get) => ({
                 line: index + 1,
             });
         });
-
-        gylphDecorations.set(linesRange.map(({ image, line }) => ({
-            range: new monaco.Range(line, 1, line, 1),
-            options: {
-                glyphMarginClassName: "monaco-glyph-margin",
-                glyphMarginHoverMessage: {
-                    value: `![image](${image})`,
-                    isTrusted: true,
-                },
-            },
-        })));
     },
     showNotification(message) {
         toast(message);
@@ -199,7 +274,11 @@ export const useEditor = create<EditorStore>((set, get) => ({
         const editor = get().runtime.editor;
         if (!editor) return;
 
-        debug(0, "Setting editor value to", value);
+        debug(
+            0,
+            "[editor] Setting editor value to",
+            value.slice(0, 25) + "...",
+        );
 
         editor.setValue(value);
     },

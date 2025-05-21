@@ -1,5 +1,5 @@
-import type { Asset } from "../stores/storage/assets";
-import { type File, wrapKAPLAYConfig } from "../stores/storage/files";
+import type { Asset } from "../features/Projects/models/Asset";
+import type { File } from "../features/Projects/models/File";
 
 export const defaultExampleFile = `
 // Starts a new game
@@ -28,7 +28,7 @@ add([
 onUpdate(() => {
     bean.angle += dt() * 90; // rotate the bean
 });
-`;
+`.trimStart();
 
 export const defaultProject: {
     resources: Asset[];
@@ -62,7 +62,7 @@ export const defaultProject: {
             name: "kaplay.js",
             path: "kaplay.js",
             language: "javascript",
-            value: wrapKAPLAYConfig(`{}`),
+            value: `kaplay()`,
             kind: "kaplay",
         },
         {

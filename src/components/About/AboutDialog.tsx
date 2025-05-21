@@ -1,22 +1,22 @@
-import kaplaygroundLogo from "../../assets/kaplayground.png";
+import { assets } from "@kaplayjs/crew";
 import { REPO, VERSION } from "../../config/common";
 
 export const AboutDialog = () => {
     return (
         <dialog id="my_modal_1" className="modal">
-            <section className="modal-box">
-                <header className="flex items-center justify-center">
-                    <img
+            <section className="modal-box max-w-md">
+                <header className="flex items-center justify-center py-2">
+                    {/* <img
                         alt="KAPLAY"
-                        src={kaplaygroundLogo}
-                        className="h-32 object-scale-down"
+                        src={assets.kaplayground_dino.outlined}
+                        className="h-48 object-scale-down"
                     >
-                    </img>
+                    </img> */}
                 </header>
 
-                <main>
-                    <p className="py-4">
-                        KAPLAYGROUND is the web editor designed for creating
+                <main className="max-w-xs mx-auto py-2">
+                    <p className="text-center sm:px-6 py-2">
+                        KAPLAYGROUND is a web editor designed for creating
                         KAPLAY games.
                     </p>
 

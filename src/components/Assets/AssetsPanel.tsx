@@ -2,11 +2,11 @@ import * as Tabs from "@radix-ui/react-tabs";
 import * as React from "react";
 import Dropzone from "react-dropzone";
 import { useAssets } from "../../hooks/useAssets";
-import type { AssetKind } from "../../stores/storage/assets";
 import { fileToBase64 } from "../../util/fileToBase64";
 import AssetsAddButton from "./AssetsAddButton";
 import AssetsList from "./AssetsList";
 import "./AssetsPanel.css";
+import type { AssetKind } from "../../features/Projects/models/AssetKind";
 import { useEditor } from "../../hooks/useEditor";
 import { cn } from "../../util/cn";
 
@@ -19,7 +19,7 @@ type Props = {
 
 const AssetsPanel: React.FC<Props> = (props) => {
     const { addAsset } = useAssets({ kind: props.kind });
-    const { showNotification } = useEditor();
+    const showNotification = useEditor((s) => s.showNotification);
     const [isDragging, setIsDragging] = React.useState(false);
 
     const handleAssetUpload = async (acceptedFiles: File[]) => {
@@ -41,7 +41,7 @@ const AssetsPanel: React.FC<Props> = (props) => {
 
     return (
         <Tabs.Content
-            className={cn("w-full h-full", {
+            className={cn("flex-1 w-full min-h-0 bg-base-100 rounded-b-xl", {
                 "dragging-border": isDragging,
             })}
             value={props.value}
@@ -68,7 +68,7 @@ const AssetsPanel: React.FC<Props> = (props) => {
                         className="h-full p-2"
                         {...getRootProps()}
                     >
-                        <div className="h-full flex flex-col justify-between">
+                        <div className="relative h-full flex flex-col justify-between overflow-hidden">
                             <AssetsList
                                 kind={props.kind}
                                 visibleIcon={props.visibleIcon}

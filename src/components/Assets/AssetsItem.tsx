@@ -1,9 +1,9 @@
 import * as ContextMenu from "@radix-ui/react-context-menu";
 import React, { type FC } from "react";
+import type { Asset } from "../../features/Projects/models/Asset";
+import { useProject } from "../../features/Projects/stores/useProject";
 import { useAssets } from "../../hooks/useAssets";
 import { useEditor } from "../../hooks/useEditor";
-import { useProject } from "../../hooks/useProject";
-import type { Asset } from "../../stores/storage/assets";
 
 export type ResourceProps = {
     asset: Asset;
@@ -14,8 +14,9 @@ const AssetsItem: FC<ResourceProps> = ({ asset, visibleIcon }) => {
     const { removeAsset } = useAssets({
         kind: asset.kind,
     });
-    const { updateFile, getAssetsFile } = useProject();
-    const { update } = useEditor();
+    const updateFile = useProject((s) => s.updateFile);
+    const getAssetsFile = useProject((s) => s.getAssetsFile);
+    const update = useEditor((s) => s.update);
 
     const handleResourceDrag = (e: React.DragEvent<HTMLLIElement>) => {
         e.dataTransfer.setData("text", asset.importFunction);
@@ -45,7 +46,7 @@ const AssetsItem: FC<ResourceProps> = ({ asset, visibleIcon }) => {
                 onDragStartCapture={handleResourceDrag}
             >
                 <li>
-                    <div className="p-2 hover:bg-base-300 cursor-grab">
+                    <div className="p-2 rounded-lg hover:bg-base-300 cursor-grab">
                         <img
                             draggable={false}
                             src={visibleIcon ?? asset.url}
@@ -60,15 +61,15 @@ const AssetsItem: FC<ResourceProps> = ({ asset, visibleIcon }) => {
             </ContextMenu.Trigger>
 
             <ContextMenu.Portal>
-                <ContextMenu.Content className="rounded-btn | bg-base-300 | flex flex-col">
+                <ContextMenu.Content className="rounded-btn p-1 bg-base-300 flex flex-col">
                     <ContextMenu.Item
-                        className="btn btn-ghost justify-start"
+                        className="btn btn-sm btn-ghost justify-start rounded-md"
                         onClick={handleResourceDelete}
                     >
                         Delete
                     </ContextMenu.Item>
                     <ContextMenu.Item
-                        className="btn btn-ghost justify-start"
+                        className="btn btn-sm btn-ghost justify-start rounded-md"
                         onClick={handleResourceLoad}
                     >
                         Load in assets.js

@@ -1,0 +1,13 @@
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/libjsonptr-3adf1315b1f233a5.rmeta: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/assign.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/delete.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/resolve.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/pointer.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/token.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/index.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/component.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/../README.md
+
+/Users/zoo/ingit/kaplayground/src-tauri/target/debug/deps/jsonptr-3adf1315b1f233a5.d: /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/lib.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/assign.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/delete.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/resolve.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/pointer.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/token.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/index.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/component.rs /Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/../README.md
+
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/lib.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/assign.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/delete.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/resolve.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/pointer.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/token.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/index.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/component.rs:
+/Users/zoo/.cargo/registry/src/index.crates.io-6f17d22bba15001f/jsonptr-0.6.3/src/../README.md:
